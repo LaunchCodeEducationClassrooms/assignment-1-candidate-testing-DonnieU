@@ -51,6 +51,7 @@ function gradeQuiz(candidateAnswers) {
       
     }
   }
+  grade = grade/questions.length*100;
   return grade;
 }
 
@@ -61,8 +62,10 @@ function runProgram() {
 
   askQuestion();
   // gradeQuiz(this.candidateAnswers);
-  let numCorrect = gradeQuiz(candidateAnswers);
-  let finalPercentage = (numCorrect/questions.length)*100;
+  // let numCorrect = gradeQuiz(candidateAnswers);
+  //let finalPercentage = (numCorrect/questions.length)*100;
+  let finalPercentage = gradeQuiz(candidateAnswers);
+  let numCorrect = (finalPercentage/100)*questions.length;
   console.log(`>>> Overall Grade: ${finalPercentage}% (${numCorrect} of ${questions.length} correct) <<<`);
   if( finalPercentage >= 80 ){
     console.log(">>> Status: PASSED <<<");
